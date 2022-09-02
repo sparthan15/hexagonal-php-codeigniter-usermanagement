@@ -1,0 +1,23 @@
+{
+    "name": "charlie_usermanagment/domain",
+    "version": "1.0.0",
+    "description": "Domain layer.",
+    "authors": [
+        {
+            "name": "Carlos Gamboa H",
+            "email": "carlosgamboa15@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "usermanagement\\domain\\": "src/usermanagement/domain/",
+            "usermanagement\\domain\\models\\": "models/",
+            "usermanagement\\domain\\models\\": "vo/",
+            "usermanagement\\domain\\specifications\\": "specifications/",
+            "usermanagement\\domain\\exceptions\\": "exceptions/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
+}

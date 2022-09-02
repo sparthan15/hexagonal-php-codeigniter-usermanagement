@@ -1,0 +1,25 @@
+{
+    "name": "charlie_usermanagment/application",
+    "description": "Description of project application.",
+    "authors": [
+        {
+            "name": "LENOVO",
+            "email": "your@email.here"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "usermanagement\\domain\\": "../domain/src/usermanagement/domain/",
+            "usermanagement\\domain\\models\\": "models/", 
+            "usermanagement\\domain\\vo\\": "vo/", 
+            "usermanagement\\domain\\specifications\\": "specifications/",
+            "usermanagement\\domain\\exceptions\\": "../domain/src/usermanagement/domain/exceptions/",
+            "usermanagement\\application\\ports\\input\\": "src/usermanagement/application/ports/input/",
+            "usermanagement\\application\\ports\\output\\": "src/usermanagement/application/ports/output/",
+            "usermanagement\\application\\usecases\\": "src/usermanagement/application/usecases/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
+}
