@@ -14,9 +14,7 @@ class LoginInputAdapterIntegrationTest extends CIUnitTestCase {
     public function testIndex() {
         $sessionDataOutputPort = $this->createMock(SessionDataOutputPort::class);
         $loginUseCase = $this->createStub(LogInUseCase::class);
-        if ($sessionDataOutputPort instanceof SessionDataOutputPort) {
-            echo "The object is SessionDataOutputPort";
-        }
+
         $result = $this->withURI('http://example.com/user')
                 ->LoginInputAdapter($loginUseCase, $sessionDataOutputPort)
                 ->execute('index');
