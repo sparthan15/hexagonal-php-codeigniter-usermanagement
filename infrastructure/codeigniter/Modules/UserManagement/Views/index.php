@@ -22,11 +22,11 @@
                 <p class="col-md-8 fs-4">Please login to access with your user and password</p>
                 <div class="col-md-7 col-lg-8">
                     <hr class="my-4">
-                    <?php if ($userLogedData == "") { ?>
+<?php if ($userLogedData == "") { ?>
                         <div class = "alert alert-danger" role = "alert">
                             User/password incorrect or does not exists.
                         </div>
-                    <?php } ?>
+<?php } ?>
                     <form class="needs-validation" action="user/login" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-4">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <label for="firstName" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" id="firstName" placeholder="" value="" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="" value="" required>
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>

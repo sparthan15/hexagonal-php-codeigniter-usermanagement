@@ -2,31 +2,32 @@
 
 namespace Modules\UserManagement\Controllers;
 
-use \CodeIgniter\Controller;
+use \App\Controllers\BaseController;
 use usermanagement\application\usecases\LogInUseCase;
 use usermanagement\application\ports\output\SessionDataOutputPort;
 
-class LoginInputAdapter extends Controller {
+class LoginInputAdapter extends BaseController {
 
     private LogInUseCase $loginUseCase;
     private SessionDataOutputPort $sessionDataOutputPort;
 
     public function __construct(LoginUseCase $loginUseCase, SessionDataOutputPort $sessionDataOutputPort) {
+
         $this->loginUseCase = $loginUseCase;
         $this->sessionDataOutputPort = $sessionDataOutputPort;
     }
 
     public function index() {
-        $logedUserData = ["name" => "Sanjay", "email" => "sanjay_kumar@gmail.com"];
         $logedUserData["userLogedData"] = $this->sessionDataOutputPort->getLogedUserData();
         return view("Modules\UserManagement\Views\header", $logedUserData)
                 . view("Modules\UserManagement\Views\index", $logedUserData);
     }
 
     public function login() {
-        $userLogedData["userLogedData"] = $this->loginUseCase->execute("cgamboa", "123456");
+        $userLogedData["userLogedData"] = $this->loginUseCase->execute($this->request->getPost("userName"), $this->request->getPost("password"));
+        $view = $userLogedData["userLogedData"] == "" ? "index" : "admin";
         return view("Modules\UserManagement\Views\header")
-                . view("Modules\UserManagement\Views\index", $userLogedData);
+                . view("Modules\UserManagement\Views\\" . $view, $userLogedData);
     }
 
 }
