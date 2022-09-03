@@ -25,8 +25,9 @@ class LoginInputAdapter extends BaseController {
 
     public function login() {
         $userLogedData["userLogedData"] = $this->loginUseCase->execute($this->request->getPost("userName"), $this->request->getPost("password"));
+        $view = $userLogedData["userLogedData"] == "" ? "index" : "admin";
         return view("Modules\UserManagement\Views\header")
-                . view("Modules\UserManagement\Views\index", $userLogedData);
+                . view("Modules\UserManagement\Views\\" . $view, $userLogedData);
     }
 
 }

@@ -18,7 +18,7 @@
         <div class="b-example-divider"></div>
         <div class="p-5 mb-1 bg-light rounded-3">
             <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Welcome to User management</h1>
+                <h1 class="display-5 fw-bold">Welcome to the admin zone.</h1>
                 <p class="col-md-8 fs-4">Please login to access with your user and password</p>
                 <div class="col-md-7 col-lg-8">
                     <hr class="my-4">
