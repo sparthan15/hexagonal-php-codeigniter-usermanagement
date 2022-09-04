@@ -2,7 +2,9 @@
 
 namespace Modules\UserManagement\Models;
 
-class UserRepository extends Model {
+use usermanagement\domain\models\User;
+
+class UserRepository extends \CodeIgniter\Model {
 
     protected $table = 'users';
     protected $primaryKey = 'id';
@@ -17,5 +19,17 @@ class UserRepository extends Model {
     protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = false;
+
+    public function logIn(string $userName, string $password): string {
+        return "";
+    }
+
+    public function logOut(int $userId): void {
+        
+    }
+
+    public function saveUser(User $user): User {
+        return $user;
+    }
 
 }

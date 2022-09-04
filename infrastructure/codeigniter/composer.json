@@ -23,6 +23,7 @@
             "usermanagement\\application\\ports\\input\\": "../../application/src/usermanagement/application/ports/input/",
             "usermanagement\\application\\usecases\\": "../../application/src/usermanagement/application/usecases/",
             "usermanagement\\domain\\models\\": "../../domain/src/usermanagement/domain/models/",
+            "usermanagement\\domain\\vo\\": "../../domain/src/usermanagement/domain/vo/",
             "usermanagement\\domain\\specifications\\": "../../domain/src/usermanagement/domain/specifications/"
         },
         "exclude-from-classmap": [
