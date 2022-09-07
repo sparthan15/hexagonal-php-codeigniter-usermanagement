@@ -3,6 +3,7 @@
 namespace usermanagement\domain\models;
 
 use usermanagement\domain\vo\UserStatus;
+use \usermanagement\domain\specifications\AddRoleSpecification;
 
 class User {
 
@@ -14,8 +15,9 @@ class User {
     private ?string $createdAt;
     private ?string $updatedAt;
     private array $logs;
+    private array $roles;
 
-    public function __construct(int $id, int $companyId, string $userName, string $password, $createdAt, string $updatedAt, UserStatus $status, array $logs) {
+    public function __construct(int $id, int $companyId, string $userName, string $password, $createdAt, string $updatedAt, UserStatus $status, array $logs, array $roles) {
         $this->id = $id;
         $this->companyId = $companyId;
         $this->userName = $userName;
@@ -24,6 +26,7 @@ class User {
         $this->updatedAt = $updatedAt;
         $this->status = $status;
         $this->logs = $logs;
+        $this->roles = $roles;
     }
 
     public function getId(): int {
@@ -56,6 +59,18 @@ class User {
 
     public function getLogs(): array {
         return $this->logs;
+    }
+
+    public function getRoles() {
+        return $this->roles;
+    }
+
+    public function addRole(Role $newRole) {
+        $addRoleSpec = new AddRoleSpecification($newRole, $this);
+        if (!$addRoleSpec->isSatisfiedBy()) {
+            throw new \RuntimeException;
+        }
+        array_push($this->roles, $newRole);
     }
 
 }

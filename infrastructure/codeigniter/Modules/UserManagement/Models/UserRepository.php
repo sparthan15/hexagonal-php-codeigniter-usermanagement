@@ -20,8 +20,11 @@ class UserRepository extends \CodeIgniter\Model {
     protected $validationMessages = [];
     protected $skipValidation = false;
 
-    public function logIn(string $userName, string $password): string {
-        return "";
+    public function logIn(string $userName, string $password): array {
+        $builder = $this->table('mytable');
+        $query = $builder->getWhere(['userName' => $userName, 'password' => $password]);
+        $result = $query->getResult();
+        return $result;
     }
 
     public function logOut(int $userId): void {

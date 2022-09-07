@@ -1,7 +1,7 @@
 <?php
 
 use \PHPUnit\Framework\TestCase;
-use Modules\UserManagement\Controllers\LoginInputAdapter;
+use Modules\UserManagement\Adapters\Input\LoginInputAdapter;
 use usermanagement\application\usecases\LogInUseCase;
 use usermanagement\application\ports\output\SessionDataOutputPort;
 
@@ -49,6 +49,7 @@ class LoginInputAdapterTest extends TestCase {
                 ->with($this->username, $this->password)
                 ->willReturn("");
         $sessionDataOutputPort = $this->createMock(SessionDataOutputPort::class);
+
         $loginInputAdapter = new LoginInputAdapter($this->loginUseCase, $sessionDataOutputPort);
         $loginInputAdapter->initController($this->request, $this->response, $this->logger);
         $result = $loginInputAdapter->login();

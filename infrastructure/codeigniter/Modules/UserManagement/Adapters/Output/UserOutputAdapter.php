@@ -5,6 +5,7 @@ namespace Modules\UserManagement\Adapters\Output;
 use usermanagement\domain\models\User;
 use usermanagement\application\ports\output\UserOutputPort;
 use Modules\UserManagement\Models\UserRepository;
+use \Config\Services;
 
 class UserOutputAdapter implements UserOutputPort {
 
@@ -15,7 +16,12 @@ class UserOutputAdapter implements UserOutputPort {
     }
 
     public function logIn(string $userName, string $password): string {
-        return $this->userRepository->logIn($userName, $password);
+        $session = Services::session();
+        $queryResult = $this->userRepository->logIn($userName, $password);
+        $logedUser = count($queryResult) > 0 ? json_encode($queryResult[0]) : "";
+        $session->set("logedUser", $logedUser);
+
+        return $logedUser;
     }
 
     public function logOut(int $userId): void {
