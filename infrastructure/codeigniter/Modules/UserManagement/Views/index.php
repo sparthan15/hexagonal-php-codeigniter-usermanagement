@@ -22,12 +22,12 @@
                 <p class="col-md-8 fs-4">Please login to access with your user and password</p>
                 <div class="col-md-7 col-lg-8">
                     <hr class="my-4">
-<?php if ($userLogedData == "") { ?>
+                    <?php if ($logedUserData == "") { ?>
                         <div class = "alert alert-danger" role = "alert">
                             User/password incorrect or does not exists.
                         </div>
-<?php } ?>
-                    <form class="needs-validation" action="user/login" method="POST" novalidate>
+                    <?php } ?>
+                    <form class="needs-validation" action="login" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-4">
                                 <label for="email" class="form-label">Email</label>

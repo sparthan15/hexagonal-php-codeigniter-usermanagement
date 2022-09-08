@@ -21,7 +21,7 @@ class UserRepository extends \CodeIgniter\Model {
     protected $skipValidation = false;
 
     public function logIn(string $userName, string $password): array {
-        $builder = $this->table('mytable');
+        $builder = $this->table($this->table);
         $query = $builder->getWhere(['userName' => $userName, 'password' => $password]);
         $result = $query->getResult();
         return $result;

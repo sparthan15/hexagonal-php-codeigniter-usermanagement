@@ -2,8 +2,6 @@
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use usermanagement\application\usecases\LogInUseCase;
-use usermanagement\application\ports\output\SessionDataOutputPort;
 
 class LoginInputAdapterIntegrationTest extends CIUnitTestCase {
 
@@ -15,18 +13,18 @@ class LoginInputAdapterIntegrationTest extends CIUnitTestCase {
     }
 
     public function testIndex() {
-        $result = $this->call('post', 'user/login', [
-            'userName' => 'carlosgamboa15@gmail.copm',
-            'email' => '123456'
+        $result = $this->call('post', 'users/login', [
+            'userName' => 'carlosgamboa15@gmail.com',
+            'password' => '123456'
         ]);
         $this->assertTrue($result->isOK());
     }
 
     public function testLogin() {
-       
-        $result = $this->call('post', 'user/login', [
+
+        $result = $this->call('post', 'users/login', [
             'userName' => 'carlosgamboa15@gmail.copm',
-            'email' => '123456'
+            'password' => '123456'
         ]);
 
         $this->assertTrue($result->isOK());

@@ -12,7 +12,7 @@ class LoginInputAdapter extends BaseController {
     private SessionDataOutputPort $sessionDataOutputPort;
 
     public function __construct(LoginUseCase $loginUseCase, SessionDataOutputPort $sessionDataOutputPort) {
-
+        $this->helpers = ['url'];
         $this->loginUseCase = $loginUseCase;
         $this->sessionDataOutputPort = $sessionDataOutputPort;
     }
@@ -25,9 +25,8 @@ class LoginInputAdapter extends BaseController {
 
     public function login() {
         $data["logedUserData"] = $this->loginUseCase->execute($this->request->getPost("userName"), $this->request->getPost("password"));
-        $view = $data["logedUserData"] == "" ? "index" : "admin";
-        return view("Modules\UserManagement\Views\header", $data)
-                . view("Modules\UserManagement\Views\\" . $view, $data);
+        //$view = $data["logedUserData"] == "" ? "index" : "admin";
+        return  redirect('\Modules\UserManagement\Adapters\Input\ListUsersInputAdapter::findAll');
     }
 
 }
