@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 use Modules\UserManagement\Adapters\Output\UserOutputAdapter;
 use Modules\UserManagement\Models\UserRepository;
 use usermanagement\domain\models\User;
+use usermanagement\domain\models\Role;
 use usermanagement\domain\vo\UserStatus;
 
 class UserOutputAdapterTest extends TestCase {
@@ -33,7 +34,7 @@ class UserOutputAdapterTest extends TestCase {
     }
 
     public function testSave() {
-        $user = new User(0, 1, $this->username, $this->password, "2022-09-04", "", UserStatus::active(), ['created']);
+        $user = new User(0, 1, $this->username, $this->password, "2022-09-04", "", UserStatus::active(), ['created'], [new Role(0, "Admin")]);
         $userRepository = $this->createMock(UserRepository::class);
         $userRepository->expects($this->once())
                 ->method("save")

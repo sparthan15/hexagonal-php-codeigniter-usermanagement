@@ -74,7 +74,8 @@ class LoginInputAdapterTest extends TestCase {
 
         $result = $loginInputAdapter->login();
         $this->assertNotNull($result);
-        $this->assertStringContainsString("Welcome to the admin zone.", $result);
+        
+        $this->assertStringContainsString("/users", $result->getHeaderLine("Location"));
     }
 
 }
