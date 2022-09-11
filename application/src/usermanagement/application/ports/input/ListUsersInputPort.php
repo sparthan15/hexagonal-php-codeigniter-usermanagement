@@ -18,7 +18,7 @@ class ListUsersInputPort implements ListUsersUseCase {
     }
 
     public function findById(int $userId) {
-        return $this->listUserOutputPort->findById($userId);
+        return $this->listUserOutputPort->findByUserId($userId);
     }
 
 }

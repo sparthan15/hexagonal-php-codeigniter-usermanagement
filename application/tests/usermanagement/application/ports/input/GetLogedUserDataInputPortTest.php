@@ -1,12 +1,13 @@
 <?php
 
 use \PHPUnit\Framework\TestCase;
-use \usermanagement\application\ports\input\GetLogedUserDataInputPort;
+use usermanagement\application\ports\input\GetLogedUserDataInputPort;
+use usermanagement\application\ports\output\SessionDataOutputPort;
 
 class GetLogedUserDataInputPortTest extends TestCase {
 
     public function test() {
-        $sessionData = $this->createMock(\usermanagement\application\ports\output\SessionDataOutputPort::class);
+        $sessionData = $this->createMock(SessionDataOutputPort::class);
         $sessionData->expects($this->once())
                 ->method("getLogedUserData")
                 ->willReturn([]);
@@ -15,7 +16,7 @@ class GetLogedUserDataInputPortTest extends TestCase {
     }
 
     public function testUseOutputPortToFetchLogedUserData() {
-        $sessionData = $this->createMock(\usermanagement\application\ports\output\SessionDataOutputPort::class);
+        $sessionData = $this->createMock(SessionDataOutputPort::class);
         $sessionData->expects($this->once())
                 ->method("getLogedUserData")
                 ->willReturn([]);

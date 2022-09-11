@@ -18,7 +18,7 @@ class ListUserInputPortTest extends TestCase {
     public function testFindById() {
         $listUserOutputPort = $this->createMock(ListUsersOutputPort::class);
         $listUserOutputPort->expects($this->once())
-                ->method("findById")
+                ->method("findByUserId")
                 ->with(1);
         $listUserInputPort = new ListUsersInputPort($listUserOutputPort);
         $this->assertNotNull($listUserInputPort->findById(1));
