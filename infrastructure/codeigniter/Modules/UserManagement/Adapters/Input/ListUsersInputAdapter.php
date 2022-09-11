@@ -5,6 +5,8 @@ namespace Modules\UserManagement\Adapters\Input;
 use App\Controllers\BaseController;
 use usermanagement\application\usecases\ListUsersUseCase;
 use usermanagement\application\ports\output\SessionDataOutputPort;
+use \Modules\UserManagement\Views\Dtos\UserResponse;
+use \Modules\UserManagement\Views\Presenters\ListAllUsersPresenter;
 
 class ListUsersInputAdapter extends BaseController {
 
@@ -19,7 +21,9 @@ class ListUsersInputAdapter extends BaseController {
 
     public function findAll() {
         $userData = $data["logedUserData"] = $this->sessionDataOutputPort->getLogedUserData();
-        $data["usersList"] = $this->listUsersUseCase->findAll($userData["companyId"]);
+        $arrayResponse = $this->listUsersUseCase->findAll($userData["companyId"]);
+        $presenter = new ListAllUsersPresenter($arrayResponse);
+        $data["presenter"] = $presenter;
         return view("Modules\UserManagement\Views\header", $data)
                 . view("Modules\UserManagement\Views\listAllUsers");
     }

@@ -7,7 +7,7 @@ use usermanagement\application\ports\output\SessionDataOutputPort;
 class SessionDataOutputAdapter implements SessionDataOutputPort {
 
     function getLogedUserData(): array {
-        return [];
+        return ["companyId"=>1];
     }
 
 }

@@ -3,7 +3,7 @@
 use \CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 
-class ListUsersInputAdapterTest extends CIUnitTestCase {
+class ListUsersInputAdapterIntegrationTest extends CIUnitTestCase {
 
     use \CodeIgniter\Test\FeatureTestTrait;
     use DatabaseTestTrait;

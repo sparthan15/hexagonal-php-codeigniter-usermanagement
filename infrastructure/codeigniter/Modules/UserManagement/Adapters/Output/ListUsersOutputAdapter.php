@@ -13,11 +13,11 @@ class ListUsersOutputAdapter implements ListUsersOutputPort {
         $this->repository = $repository;
     }
 
-    public function findAll(int $companyId): void {
-        $this->repository->findAllUsersByCompanyId($companyId);
+    public function findAll(int $companyId): array {
+        return $this->repository->findAllUsersByCompanyId($companyId);
     }
-     public function findById(int $companyId): void {
-        $this->repository->findAllUsersByCompanyId($companyId);
+     public function findByUserId(int $userId): array {
+       return  $this->repository->findAllUsersByCompanyId($userId);
     }
     
 

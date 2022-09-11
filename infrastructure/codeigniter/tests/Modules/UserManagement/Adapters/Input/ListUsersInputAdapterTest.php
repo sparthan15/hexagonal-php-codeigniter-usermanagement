@@ -39,5 +39,4 @@ class ListUsersInputAdapterTest extends TestCase {
         $this->assertStringContainsString("Welcome to User management", $result);
     }
 
-
 }

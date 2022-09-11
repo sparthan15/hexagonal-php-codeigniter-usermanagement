@@ -32,28 +32,39 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">userName</th>
+                                <th scope="col">user id</th>
+                                <th scope="col">Company</th>
+                                <th scope="col">User name</th>
                                 <th scope="col">Created at</th>
                                 <th scope="col">update at </th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">
-                                        <i class="bi bi-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="bi bi-trash3-fill"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                           
+                            <?php
+                            if (count($presenter->usersList) > 0) {
+                                foreach ($presenter->usersList as $user) {
+                                    ?>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><?= $user->userId ?></td>
+                                        <td><?= $user->companyId ?></td>
+                                        <td><?= $user->userName ?></td>
+                                        <td><?= $user->createdAt ?></td>
+                                        <td><?= $user->updatedAt ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning">
+                                                <i class="bi bi-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

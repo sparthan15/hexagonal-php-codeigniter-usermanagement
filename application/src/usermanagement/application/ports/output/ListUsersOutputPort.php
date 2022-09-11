@@ -6,5 +6,5 @@ interface ListUsersOutputPort {
 
     function findAll(int $companyId): array;
 
-    function findByUserId(int $userId): User;
+    function findByUserId(int $userId): array;
 }
