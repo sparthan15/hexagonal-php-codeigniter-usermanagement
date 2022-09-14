@@ -21,7 +21,6 @@ class ListAllUsersPresenterTest extends PHPUnit\Framework\TestCase {
     public function testIsEmpty() {
         $presenter = new ListAllUsersPresenter([]);
         $this->assertNotNull($presenter);
-        var_dump($presenter);
         $this->assertTrue($presenter->isEmpty());
     }
 

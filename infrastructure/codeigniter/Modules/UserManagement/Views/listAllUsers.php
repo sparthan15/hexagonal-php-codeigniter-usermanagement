@@ -13,6 +13,8 @@
         <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../assets/bootstrap/form-validation/form-validation.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <!-- Custom styles for this template -->
+        <link href="../assets/bootstrap/modals.css" rel="stylesheet">
     </head>
 
     <body>
@@ -24,8 +26,8 @@
                 <div class="col-md-7 col-lg-8">
                     <hr class="my-4">
 
-                    <button type="button" class="btn btn-primary">
-                        <i class="bi bi-person-plus-fill"></i></i>
+                    <button type="button" id="addUserButton" data-bs-toggle="modal" data-bs-target="#addUserModal" class="btn btn-primary">
+                        <i class="bi bi-person-plus-fill"></i>
                     </button>
                     <hr class="my-4">
                     <table class="table">
@@ -72,8 +74,8 @@
             </div>
         </div>
         <div class="b-example-divider">2022</div>
-        <script src="../assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+        <script src="../assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/bootstrap/form-validation/form-validation.js"></script>
     </body>
 </html>
