@@ -5,7 +5,6 @@ namespace Modules\UserManagement\Adapters\Input;
 use App\Controllers\BaseController;
 use usermanagement\application\usecases\ListUsersUseCase;
 use usermanagement\application\ports\output\SessionDataOutputPort;
-use \Modules\UserManagement\Views\Dtos\UserResponse;
 use \Modules\UserManagement\Views\Presenters\ListAllUsersPresenter;
 
 class ListUsersInputAdapter extends BaseController {

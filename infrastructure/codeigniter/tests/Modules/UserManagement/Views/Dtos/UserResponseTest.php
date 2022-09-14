@@ -33,5 +33,17 @@ class UserResponseTest extends PHPUnit\Framework\TestCase {
         $userResponse = new UserResponse($array);
         $this->assertFalse($userResponse->isActive);
     }
+    
+     public function testIfDoesNotExistPropertyThenReturnNA() {
+       $array = new stdClass();
+        $array->userid = 1;
+        $array->companyid = 1;
+        $array->createdAtaa = "2022-09-11";
+        $array->updatedAtaa = "2022-09-11";
+        $array->statusaa = "INACTIVE";
+        $array->usernameaa = "carlosgamboa15@gmail.com";
+        $userResponse = new UserResponse($array);
+        $this->assertStringContainsString($userResponse->companyId, "VALUE NOT FOUND");
+    }
 
 }

@@ -14,4 +14,8 @@ class ListAllUsersPresenter {
         }
     }
 
+    public function isEmpty(): bool {
+        return !isset($this->usersList) || count($this->usersList) == 0;
+    }
+
 }

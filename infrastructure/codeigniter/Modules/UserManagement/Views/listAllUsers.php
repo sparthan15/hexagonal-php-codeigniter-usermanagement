@@ -42,7 +42,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            if (count($presenter->usersList) > 0) {
+                            if (!$presenter->isEmpty()) {
                                 foreach ($presenter->usersList as $user) {
                                     ?>
                                     <tr>
@@ -61,7 +61,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                             }
                             ?>
