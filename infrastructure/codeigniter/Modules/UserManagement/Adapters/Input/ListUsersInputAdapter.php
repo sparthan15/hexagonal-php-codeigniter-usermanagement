@@ -25,6 +25,7 @@ class ListUsersInputAdapter extends BaseController {
         $data["presenter"] = $presenter;
         return view("Modules\UserManagement\Views\header", $data)
                 . view("Modules\UserManagement\Views\listAllUsers")
+                 . view("Modules\UserManagement\Views\\footer")
                 . view('Modules\UserManagement\Views\modalsHtml');
     }
 

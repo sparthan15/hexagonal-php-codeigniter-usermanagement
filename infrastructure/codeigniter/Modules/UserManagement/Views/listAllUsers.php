@@ -23,7 +23,7 @@
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Welcome to the admin zone.</h1>
                 <p class="col-md-8 fs-4">Users/</p>
-                <div class="col-md-7 col-lg-8">
+                <div class=" col-12">
                     <hr class="my-4">
 
                     <button type="button" id="addUserButton" data-bs-toggle="modal" data-bs-target="#addUserModal" class="btn btn-primary">
@@ -37,6 +37,8 @@
                                 <th scope="col">user id</th>
                                 <th scope="col">Company</th>
                                 <th scope="col">User name</th>
+                                <th scope="col">Roles</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Created at</th>
                                 <th scope="col">update at </th>
                                 <th>Options</th>
@@ -52,6 +54,18 @@
                                         <td><?= $user->userId ?></td>
                                         <td><?= $user->companyId ?></td>
                                         <td><?= $user->userName ?></td>
+                                        <td>
+                                            <div >
+                                                <select class="form-select" id="country" required>
+                                                    <option value="ACTIVE">ACTIVE</option>
+                                                    <option value="INACTIVE">INACTIVE</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select a valid Status
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Roles...</td>
                                         <td><?= $user->createdAt ?></td>
                                         <td><?= $user->updatedAt ?></td>
                                         <td>
@@ -70,11 +84,8 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
-        <div class="b-example-divider">2022</div>
-
         <script src="../assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/bootstrap/form-validation/form-validation.js"></script>
     </body>

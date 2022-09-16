@@ -37,6 +37,8 @@ class ListUsersInputAdapterTest extends TestCase {
         $result = $listUserInputAdapter->findAll();
         $this->assertNotNull($result);
         $this->assertStringContainsString("Welcome to User management", $result);
+        $this->assertStringContainsString("Status", $result);
+        $this->assertStringContainsString("Roles", $result);
     }
 
 }
